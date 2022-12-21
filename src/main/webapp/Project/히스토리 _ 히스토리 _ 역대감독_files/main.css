@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+.main #wrap{min-width:1300px;}
+.main #header{margin-bottom:0;height:80px;}
+.main #body{width:100%;}
+.main #footer{margin-top:0;}
+
+.mainLink{margin:32px auto 0;width:960px;}
+.mainLink .bd ul{zoom:1;}
+.mainLink .bd ul:after{content:".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.mainLink .bd li{float:left;margin-left:37px;width:212px;}
+.mainLink .bd li.first{margin-left:0;}
+.mainLink .bd li a{display:block;}
+.mainLink .bd li a:hover{color:#686a6e;}
+.mainLink .bd li .img,.mainLink .bd li .tit,.mainLink .bd li .txt{display:block;text-align:center;letter-spacing:-1px;}
+.mainLink .bd li .img{padding:0 0 5px;}
+.mainLink .bd li .tit{color:#00050f;margin-top:4px;}
+.mainLink .bd li .tit em{display:block;font-size:11px;}
+.mainLink .bd li .tit strong{font-size:16px;}
+.mainLink .bd li .txt{background:url(/img/main/k_main.png) 50% -245px no-repeat;color:#686a6e;margin-top:10px;padding-top:13px;}
+
+.lionMedia{background-color:#f9f9f9;margin-top:40px;padding:35px 0;}
+.lionMedia .bg{margin:0 auto;width:960px;}
+.lionMedia .hd{margin-bottom:27px;}
+.lionMedia .hd h3{background:url(/img/main/k_main.png) 0 0 no-repeat;text-indent:-9999px;margin:0 auto 10px;width:206px;height:17px;}
+.lionMedia .hd p{text-align:center;}
+.lionMedia .bd ul{zoom:1;}
+.lionMedia .bd ul:after{content:".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.lionMedia .bd li{float:left;margin-left:30px;_margin-left:18px;width:300px;}
+.lionMedia .bd li.first{margin-left:0;}
+.lionMedia .bd li .img{position:relative;display:block;margin-bottom:14px;}
+.lionMedia .bd li .img .iPlay{position:absolute;top:50%;left:50%;margin:-26px 0 0 -26px;_margin-top:-100px;cursor:pointer;}
+.lionMedia .bd li .txt{position:relative;}
+.lionMedia .bd li .txt .t{display:block;background:url(/img/main/k_main.png) 0 -50px no-repeat;text-indent:-9999px;height:13px;}
+.lionMedia .bd li.photo .txt .t{background-position:0 -85px;}
+.lionMedia .bd li.support .txt .t{background-position:0 -120px;}
+.lionMedia .bd li .txt .mBtn1t2{position:absolute;top:-5px;right:0;}
+.lionMedia .bd li .txt ul{margin-top:13px;}
+.lionMedia .bd li .txt li{background:url(/img/main/k_main.png) -202px -145px no-repeat;margin:0;padding-left:8px;letter-spacing:-1px;}
+.lionMedia .bd li .txt li em{color:#f55e03;}
+
+.promotion{position:relative;margin:0 auto;width:960px;}
+.promotion .flex-control-nav{position:absolute;top:30px;right:15px;}
+.promotion .flexslider{border-bottom:1px solid #e7e7e7;}
+
+.branch{position:relative;margin:0 auto;width:960px;}
+.branch .bd ul{padding:32px 0 32px 168px;height:59px;}
+.branch .bd li{float:left;}
+.branch .bd li a{display:block;float:left;background:url(/img/main/k_branch.png) 0 0 no-repeat;line-height:110%;padding:13px 0 0 60px;width:97px;height:46px;}
+.branch .bd li.b a{background-position:0 -70px;}
+.branch .bd li.c a{background-position:0 -140px;}
+.branch .bd li.d a{background-position:0 -210px;}
+.branch .bd li.t,.branch .bd li.f,.branch .bd li.m{margin:10px 0 0;}
+.branch .bd li.t a,.branch .bd li.f a,.branch .bd li.m a{background-position:0 -270px;text-indent:-9999px;font-size:0;padding:0;width:34px;height:34px;}
+.branch .bd li.f a{background-position:-33px -270px;width:23px;}
+.branch .bd li.m a{background-position:-56px -270px;width:30px;}
+.branch .bd li.t{margin-left:-16px;}
+
+.hotphoto{clear:both;background-color:#0e1524;text-align:center;}
+.hotphoto .bd{position:relative;margin:0 auto;width:1259px;}
+.hotphoto .photo{position:relative;width:1259px;overflow:hidden;}
+.hotphoto .photo ul{width:9999px;}
+.hotphoto .photo li{float:left;}
+.hotphoto .photo li a{text-decoration:none;}
+.hotphoto .photo li{position:relative;}
+.hotphoto .photo li .txt{display:block;position:absolute;top:69px;left:303px;color:#fff;text-align:left;}
+.hotphoto .photo li .txt .tit1{display:block;background:url(/img/main/k_branch.png) 2px -350px no-repeat;margin-bottom:8px;text-indent:-9999px;height:10px;}
+.hotphoto .photo li .txt .tit2{display:block;font-size:30px;letter-spacing:-1px;margin-bottom:14px;}
+.hotphoto .photo li .txt .tx{filter:alpha(opacity=80);opacity:0.8;-moz-opacity:0.8;}
+
+.hotphoto .cancel{position:relative;}
+.hotphoto .cancel .btnGomain a{position:absolute;bottom:28px;left:50%;margin-left:-52px;}
+.hotphoto .cancel .flash{position:absolute;top:0;left:0;}
+
+.main .banner{position:absolute;top:125px;right:-15px;}
+
+.todayMU{position:absolute;top:80px;left:97px;background:url(/img/main/k_todaymu_none.png) 0 1px no-repeat;color:#fff;font-size:10px;width:178px;height:330px;}
+.todayMU .tit{display:block;}
+.todayMU img{margin:0 -2px;}
+.todayMU .date .dot{display:inline-block;background:url(/img/main/ico_dot_s.png) 0 5px no-repeat;text-indent:-9999px;width:3px;height:9px;overflow:hidden;}
+.todayMU .score .vs{display:inline-block;background:url(/img/main/ico_vs_m.png) 50% 3px no-repeat;text-indent:-9999px;width:18px;height:22px;overflow:hidden;}
+.todayMU .score .vs2{display:inline-block;background:url(/img/main/ico_vs2_s.png) 0 2px no-repeat;margin-right:-2px;text-indent:-9999px;width:20px;height:15px;overflow:hidden;}
+.todayMU .prev,.todayMU .next{margin-left:-5px;}
+.todayMU .score .gLeft{width:80px;}
+.todayMU .score .gRight{width:77px;}
+.todayMU .score .gLeft em,.todayMU .score .gRight em{padding:0 5px;}
+.todayMU .score .gLeft img,.todayMU .score .gRight img{vertical-align:-7px;}
+.todayMU .score .gLeft{text-align:right;}
+.todayMU .score .gRight{text-align:left;}
+.todayMU .score .vs{*float:left;}
+.todayMU .current{position:absolute;top:120px;left:0;}
+.todayMU .current .date{margin:-20px 0 2px;}
+.todayMU .current .date img{margin:0 -1px 0 -2px;}
+.todayMU .current .date .dot{background:url(/img/main/ico_dot_mc.png) 0 7px no-repeat;}
+.todayMU .current .tit{color:#fff;font-size:10px;padding:1px 0 0;text-align:center;}
+.todayMU .current .tit .lo{position:absolute;top:1px;left:69px;background:url(/img/common/k_ico24.png) -205px -248px no-repeat;text-align:center;width:40px;}
+.todayMU .current .tit .lo .t{display:none;}
+.todayMU .current .tit .sc .vs{display:inline-block;text-indent:-9999px;width:40px;}
+.todayMU .current .score{margin-top:6px;margin:6px -20px 0;width:220px;height:44px;overflow:hidden;}
+.todayMU .current .rain{margin-top:1px;height:76px;}
+.todayMU .current .rain img{margin-left:-12px;}
+.todayMU .current .score em img{margin-top:-5px;vertical-align:middle;}
+.todayMU .current .score .vs{float:left;display:inline-block;background:url(/img/main/ico_vs.png) 50% 3px no-repeat;text-indent:-9999px;width:33px;height:26px;overflow:hidden;}
+.todayMU .current .score .vs2{float:left;background:url(/img/main/ico_vs_l.png) 0 3px no-repeat;margin:0 -3px 0 -4px;width:40px;height:30px;}
+.todayMU .current .score .gLeft{color:#fff;width:93px;}
+.todayMU .current .score .gRight{color:#fff;width:94px;}
+/*
+.todayMU .current .score .vs{float:left;display:inline-block;background:url(/img/main/ico_vs.png) 50% 3px no-repeat;text-indent:-9999px;width:40px;height:26px;overflow:hidden;}
+.todayMU .current .score .vs2{background:url(http://lions.happyrising.com/img/main/ico_vs_l.png) 0 3px no-repeat;width:40px;height:30px;}
+.todayMU .current .score .gLeft{color:#fff;width:88px;}
+.todayMU .current .score .gRight{color:#fff;width:89px;}
+*/
+.todayMU .current .win{font-size:11px;margin-left:15px;*margin:-2px 0 0 -10px;text-align:center;width:140px;}
+.todayMU .current .win span{display:block;float:left;padding-left:5px;width:65px;}
+.todayMU .next{position:absolute;top:265px;left:0;width:100%;}
+
+.todayMU .button .btnPrev,.todayMU .button .btnNext{position:absolute;left:50%;margin-left:-41px;}
+.todayMU .button .btnPrev{top:53px;}
+.todayMU .button .btnNext{top:221px;}
+.todayMU .button .btnPrev a,.todayMU .button .btnNext a{display:block;background:url(/img/main/btn_today_prev.png) 0 50% no-repeat;text-indent:-9999px;font-size:0;width:75px;height:35px;}
+.todayMU .button .btnNext a{background-image:url(/img/main/btn_today_next.png);}
+
+
+
+
+/* for ie8 */
+@media \0screen {
+	.todayMU{background-position:0 0;}
+}
+
+/* for chrome */
+@media screen and(-webkit-min-device-pixel-radio:0){
+	.todayMU{background-position:0 0;}
+	.todayMU .current .tit .lo{background-position:-205px -249px;}
+}

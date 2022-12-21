@@ -1,0 +1,668 @@
+(function(){
+
+	//$('body').attr('id', 'colortype-blue');
+	//$('body').attr('id', 'colortype-black');
+	
+	$(".it input").focus(function(){
+		$(this).parent().addClass("selected");
+	});
+	$(".it input").blur(function(){
+		$(this).parent().removeClass("selected");
+	});
+
+	/* 팝업 - 우편번호 찾기 */
+	$(".btnFindzipcode a").click(function(){
+		var wl = (screen.width - 450) / 2;
+		window.open(this.href, 'BizSirenWindow', 'width=500, height=470,resizable=0,scrollbars=no,status=0,titlebar=0,toolbar=0,left=' + wl + ', top=200');
+		return false;
+	});
+	/* 팝업 - 차단하기 */
+	$(".jsCut").click(function(){
+		var wl = (screen.width - 450) / 2;
+		window.open(this.href, 'BizSirenWindow', 'width=500, height=500,resizable=0,scrollbars=no,status=0,titlebar=0,toolbar=0,left=' + wl + ', top=200');
+		return false;
+	});
+	/* 팝업 - 관리요청 */
+	$(".jsRequestManage").click(function(){
+		var wl = (screen.width - 450) / 2;
+		window.open(this.href, 'BizSirenWindow', 'width=500, height=500,resizable=0,scrollbars=no,status=0,titlebar=0,toolbar=0,left=' + wl + ', top=200');
+		return false;
+	});
+	/* 팝업 - 영상올리기 도움말 */
+	$(".jsHelp").click(function(){
+		var wl = (screen.width - 450) / 2;
+		window.open(this.href, 'BizSirenWindow', 'width=670, height=800,resizable=0,scrollbars=no,status=0,titlebar=0,toolbar=0,left=' + wl + ', top=100');
+		return false;
+	});
+
+	/* 이달의 선수 */
+	if ( $(".mList4 ul").length )
+	{
+		$(".mList4 .iPrev").click(function(){
+			obj = $(".mList4 li:first-child").clone();
+			$(".mList4 li:first-child").remove();
+			$(".mList4 ul").append(obj);
+		});
+		$(".mList4 .iNext").click(function(){
+			obj = $(".mList4 li:last-child").clone();
+			$(".mList4 li:last-child").remove();
+			$(".mList4 ul").prepend(obj);
+		});
+	}
+	
+	/* 경기결과 보기 */
+	$(".mScore2 .btnScoreResult").click(function(){
+		if ( $(".mScoreDetail").css("display") == "block")
+		{
+			$(".mScoreDetail").hide();
+		}
+		else
+		{
+			$(".mScoreDetail").show();
+		}
+	});
+
+	/* 팝업창 닫기 */
+	$(".btnClose a").click(function(){
+		 window.close();
+	});
+
+	/*  select */
+	$(".mSelect .tit").click(function(){
+		$(this).addClass("selected");
+		$(this).next().show();
+	});
+	$(".mSelect li a").click(function(){
+		$(this).parent().parent().parent().parent().children().eq(0).removeClass("selected");
+		$(this).parent().parent().hide();
+		/*
+		$(this).parent().parent().parent().parent().children().eq(0).removeClass("selected");
+		$(this).parent().parent().parent().children().children().eq(0).html( $(this).text() );
+		$(this).parent().parent().hide();
+		*/
+	});
+
+	/*  경기일정 */
+	$(".mCalendar .calendar td.game .bg").mouseover(function(){
+		$(this).addClass("over");
+	});
+	$(".mCalendar .calendar td.game .bg").mouseout(function(){
+		$(this).removeClass("over");
+	});
+	
+	/* footer - banner */
+	$("#footer .banner2 .list li .tit").click(function(){
+		$("#footer .banner2 .list li").removeClass("selected").eq( $(this).parent().index() ).addClass("selected");
+	});
+
+	/* 스킨 변경 */
+$("#gnb3 .color1").click(function(){ $('body').attr('id', ''); });
+$('#gnb3 .color2').click(function(){ $('body').attr('id', 'colortype-blue'); });
+$('#gnb3 .color3').click(function(){ $('body').attr('id', 'colortype-black'); });
+
+
+	/* s:경기정보 - 좌석배치도 */
+	$("#popSeat .tabSeat li span").click(function(){
+		$("#popSeat .tabSeat li span").removeClass("selected");
+		$("#popSeat .con .img").addClass("blind");
+		$(this).addClass("selected");
+		$("#popSeat .con .img").eq($(this).parent().index()).removeClass("blind");
+	});
+	/* e:경기정보 - 좌석배치도 */
+
+	/* s:fan */
+	$(".fanSns .mTabSns li a").click(function(){
+		$(".fanSns .mTabSns li a").removeClass("selected");
+		$(this).parent().parent().parent().next().find(".con").removeClass("selected");
+		$(this).addClass("selected");
+		$(this).parent().parent().parent().next().find(".con").eq( $(this).parent().index() ).addClass("selected");
+		return false;
+	});
+	/* e:fan */
+
+	/* profile layer */
+	$(".jsProfileName").click(function(e){
+		$(".lProfile").hide();
+		$(".lProfile").css({
+			'left':e.pageX,
+			'top':e.pageY
+		});
+		$(".lProfile").show();
+	});
+
+	$(".jsProfileName2").click(function(e){
+		$(".lCutoff").show();
+		$(".lCutoff").css("left",e.pageX);
+	});
+
+	/* 수훈선수 포토타임 */
+	$(".mList2 li").hover(
+		function(){
+			$(this).addClass("selected");
+			$(this).children().eq(2).children().children().css("margin-top",-($(this).children().eq(2).children().children().height()/2));
+		},
+		function(){
+			$(this).removeClass("selected");
+			$(this).children().eq(2).children().children().css("margin-top",-($(this).children().eq(2).children().children().height()/2));
+		}
+	);
+	$(".mList2 li a").focus(function(){
+		$(this).parent().addClass("selected");
+		$(this).parent().children().eq(2).children().children().css("margin-top",-($(this).children().eq(2).children().children().height()/2));
+	});
+	$(".mList2 li a").blur(function(){
+		$(this).parent().removeClass("selected");
+		$(this).parent().children().eq(2).children().children().css("margin-top",-($(this).children().eq(2).children().children().height()/2));
+	});
+
+	/* 선수단 */
+	$(".mList3 li a").hover(
+		function(){
+			$(this).parent().addClass("selected");
+			$(this).children().eq(2).css("margin-bottom",-($(this).children().eq(2).height()/2));
+			$(this).children().eq(3).css("margin-bottom",-($(this).children().eq(3).height()/2));
+		},
+		function(){
+			$(this).parent().removeClass("selected");
+			$(this).children().eq(2).css("margin-bottom","0");
+			$(this).children().eq(3).css("margin-bottom","0");
+		}
+	);
+	$(".mList3 li a").focus(function(){
+		$(this).parent().addClass("selected");
+		$(this).children().eq(2).css("margin-bottom",-($(this).children().eq(2).height()/2));
+		$(this).children().eq(3).css("margin-bottom",-($(this).children().eq(3).height()/2));
+	});
+	$(".mList3 li a").blur(function(){
+		$(this).parent().removeClass("selected");
+		$(this).children().eq(2).css("margin-bottom","0");
+		$(this).children().eq(3).css("margin-bottom","0");
+	});
+
+	$(".btnListen").click(function(){
+		var objArr = $(".mPlayerArr");
+		for(var i=0;i<objArr.length;i++){
+			if(objArr[i] != null){
+				if(objArr[i].controls != null){
+			alert(i);
+					objArr[i].controls.stop();
+				}
+			}
+		}
+		/*
+		$(".mPlayerArr").each(function(){
+			if($(this)!= null){
+				if($(this).controls != null){
+					$(".mPlayerArr").controls.stop();
+				}
+			}
+		});
+		*/
+		var soundId = $(this).parent().find('object').attr('id');
+		document.getElementById(soundId).controls.play();
+	});
+
+	$(".fightSong .btnPlay").click(function(){
+		$(".fightSong .btnPause").hide();
+		$(".fightSong .btnPlay").show();
+		$(this).hide();
+		$(this).next().show();
+		document.getElementById("mPlayer").url = $(this).attr("href");
+		document.getElementById("mPlayer").controls.play();
+		return false;
+	});
+	$(".fightSong .btnPause").click(function(){
+		$(".fightSong .btnPause").hide();
+		$(".fightSong .btnPlay").show();
+		$(this).hide();
+		$(this).prev().show();
+		document.getElementById("mPlayer").controls.pause();
+	});
+	$(".fightSong .btnStop").click(function(){
+		$(".fightSong .btnPause").hide();
+		$(".fightSong .btnPlay").show();
+		document.getElementById("mPlayer").controls.stop();
+	});
+
+	if ( $(".historyGrade .mTab3").length )
+	{
+		$(".historyGrade .mTab3 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".historyGrade .list").removeClass("selected");
+			$(".historyGrade .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".mgTransfer .mTab3").length )
+	{
+		$(".mgTransfer .mTab3 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".mgTransfer .list").removeClass("selected");
+			$(".mgTransfer .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".toGraph .tab").length )
+	{
+		$(".toGraph .tab li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".toGraph .list").removeClass("selected");
+			$(".toGraph .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	/*
+	if ( $(".jsBoardHover").length )
+	{
+		$(".jsBoardHover tr").hover(
+			function(){
+				$(this).addClass("hover");
+			},
+			function(){
+				$(this).removeClass("hover");
+			}
+		);
+	}
+	*/
+	
+	/* 기록실 */
+	if ( $(".rgResult .mTab3").length )
+	{
+		$(".rgResult .mTab3 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".rgResult .list").removeClass("selected");
+			$(".rgResult .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".bestBatter .mTab3").length )
+	{
+		$(".bestBatter .mTab3 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".bestBatter .list").removeClass("selected");
+			$(".bestBatter .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".bestPitcher .mTab3").length )
+	{
+		$(".bestPitcher .mTab3 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".bestPitcher .list").removeClass("selected");
+			$(".bestPitcher .list").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".mewcomer .mTab3").length )
+	{
+		$(".mewcomer .mTab3 li a").click(function(){
+			$(this).parent().parent().parent().children().removeClass("selected");
+			$(this).parent().parent().addClass("selected");
+		});
+		$(".mewcomer .mTab3 li li a").click(function(){
+			$(this).parent().parent().children().removeClass("selected");
+			$(this).parent().addClass("selected");
+			var layerId = $(this).parent().children().attr('href')
+			$(".mewcomer .list").removeClass("selected");
+			$(layerId).addClass("selected");
+			return false;
+		});
+		
+		$(".mewcomer .mTab3 li a").focus(function(){
+			$(this).parent().parent().parent().children().removeClass("selected");
+			$(this).parent().parent().addClass("selected");
+		});
+		$(".mewcomer .mTab3 li li a").focus(function(){
+			$(this).parent().parent().children().removeClass("selected");
+			$(this).parent().addClass("selected");
+			var layerId = $(this).parent().children().attr('href')
+			$(".mewcomer .list").removeClass("selected");
+			$(layerId).addClass("selected");
+			return false;
+		});
+	}
+
+	/* 구단 */
+	if ( $(".socialResponse .mBoard2dl").length )
+	{
+		$(".socialResponse .mBoard2dl dt").click(function(){
+			$(".socialResponse .mBoard2dl dt").removeClass("selected");
+			$(".socialResponse .mBoard2dl dd").hide();
+			$(this).addClass("selected");
+			$(this).next().show()
+		});
+	}
+	if ( $(".greeting .mTab4").length )
+	{
+		$(".greeting .mTab4 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".greeting .con").removeClass("selected");
+			$(".greeting .con").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".mPicture").length )
+	{
+		$(".mPicture .navi li").click(function(){
+			$(".mPicture .navi li").removeClass("selected");
+			$(this).addClass("selected");
+			$(".mPicture .large li").removeClass("selected");
+			$(".mPicture .large li:eq("+$(this).index()+")").addClass("selected");
+		});
+		$(".mPicture .large .iPrev").click(function(){
+			var iPrevFlag;
+			$(".mPicture .navi li").each(function(){
+				if ( $(this).hasClass("selected") == true )
+				{
+					iPrevFlag = $(this).index();
+				}
+				$(this).removeClass("selected");
+				$(".mPicture .large li").removeClass("selected");
+			});
+			$(".mPicture .large li:eq("+(iPrevFlag-1)+")").addClass("selected");
+			$(".mPicture .navi li:eq("+(iPrevFlag-1)+")").addClass("selected");
+			if ( iPrevFlag == 7 ) { $(".mPicture .navi .ls li:first-child").show(); }
+			else if ( iPrevFlag == 0 ) { $(".mPicture .navi .ls li:first-child").hide(); }
+		});
+		$(".mPicture .large .iNext").click(function(){
+			var iNextFlag;
+			var naviLength = $(".mPicture .navi li").length;
+			$(".mPicture .navi li").each(function(){
+				if ( $(this).hasClass("selected") == true )
+				{
+					iNextFlag = $(this).index();
+					if ((iNextFlag+1) == naviLength)
+					{
+						iNextFlag = -1;
+					}
+				}
+				$(this).removeClass("selected");
+				$(".mPicture .large li").removeClass("selected");
+			});
+			$(".mPicture .large li:eq("+(iNextFlag+1)+")").addClass("selected");
+			$(".mPicture .navi li:eq("+(iNextFlag+1)+")").addClass("selected");
+			if ( iNextFlag == 7 ) { $(".mPicture .navi .ls li:first-child").hide(); }
+			else if ( iNextFlag == -1 ) { $(".mPicture .navi .ls li:first-child").show(); }
+		});
+	}
+	if ( $(".statiumNew .mTab4").length )
+	{
+		$(".statiumNew .mTab4 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".statiumNew .detail").removeClass("selected");
+			$(".statiumNew .detail").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+
+
+	/* 히스토리 */
+	if ( $(".historyFront").length )
+	{
+		$(".historyFront .list dd .name").click(function(e){
+			$(".historyFront .list dd .detail").removeClass("selected");
+			$(this).next().children().eq(0).text( $(this).html() );
+			$(this).next().addClass("selected");
+			$(this).next().css("top",e.pageY);
+			$(this).next().append('<span class="iClose">레이어 닫기</span>');
+			$(".iClose").click(function(){ $(this).parent().removeClass("selected"); });
+		});
+	}
+	if ( $(".historyAward .mTab4").length )
+	{
+		$(".historyAward .mTab4 li").click(function(){
+			$(this).parent().children().removeClass("selected");
+			$(this).addClass("selected");
+			$(".historyAward .con").removeClass("selected");
+			$(".historyAward .con").eq($(this).index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".historyLegend .navi").length )
+	{
+		$(".historyLegend .navi li a").click(function(){
+			$(this).parent().parent().children().removeClass("selected");
+			$(this).parent().addClass("selected");
+			$(".historyLegend .con").removeClass("selected");
+			$(".historyLegend .con").eq($(this).parent().index()).addClass("selected");
+			return false;
+		});
+		$(".historyLegend .navi li a").focus(function(){
+			$(this).parent().parent().children().removeClass("selected");
+			$(this).parent().addClass("selected");
+			$(".historyLegend .con").removeClass("selected");
+			$(".historyLegend .con").eq($(this).parent().index()).addClass("selected");
+			return false;
+		});
+	}
+	if ( $(".replyPlayer .icon").length )
+	{
+		$(".replyPlayer .icon input[type=radio]").each(function(){
+			$(this).click(function(){
+				$(".replyPlayer .mReply .write .tit h4 strong").text( $(this).prev().children().attr("alt"));
+				$(".replyPlayer .mReply .write .tit h4 strong").next().addClass("selected");
+			})
+		});
+	}
+
+	/* s:footer rolling */
+	$('.rolling').each(function() {
+		var ssTmOut; //Timeout variable
+		var timer_is_on=0;
+		var spacing = 90;
+		var ssListWidth = 1170;
+		var ssTmSpeed = 1000;
+/*
+		$(this).children('.ssviewer').find('li').css({
+			'left' : '1000px'
+		});
+*/
+		$(this).children('.ssviewer').each(function() {
+			$(this).find('li').addClass('ssicon');
+
+			var rotateInProgress = false;
+			var sschangeview = function() {
+				if (!rotateInProgress)	{
+					rotateInProgress = true;
+					ssTmOut = false;
+
+					var jQueryssLis = $('li.ssicon');
+					jQueryssLis.eq(0).css('left', 0).animate({'left':-spacing}, ssTmSpeed, function() {
+						$(this).appendTo('.ssviewer ul');
+						rotateInProgress = false;
+						if (!ssTmOut) {
+							ssTmOut = setTimeout(sschangeview, 60);
+						}
+					});
+					jQueryssLis.eq(1).css('left', spacing).animate({'left':0}, ssTmSpeed);
+					jQueryssLis.eq(2).css('left', spacing * 2).animate({'left':spacing}, ssTmSpeed);
+					jQueryssLis.eq(3).css('left', spacing * 3).animate({'left':spacing * 2}, ssTmSpeed);
+					jQueryssLis.eq(4).css('left', spacing * 4).animate({'left':spacing * 3}, ssTmSpeed);
+					jQueryssLis.eq(5).css('left', spacing * 5).animate({'left':spacing * 4}, ssTmSpeed);
+					jQueryssLis.eq(6).css('left', spacing * 6).animate({'left':spacing * 5}, ssTmSpeed);
+					jQueryssLis.eq(7).css('left', spacing * 7).animate({'left':spacing * 6}, ssTmSpeed);
+					jQueryssLis.eq(8).css('left', spacing * 8).animate({'left':spacing * 7}, ssTmSpeed);
+					jQueryssLis.eq(9).css('left', spacing * 9).animate({'left':spacing * 8}, ssTmSpeed);
+					jQueryssLis.eq(10).css('left', spacing * 10).animate({'left':spacing * 9}, ssTmSpeed);
+					jQueryssLis.eq(11).css('left', spacing * 11).animate({'left':spacing * 10}, ssTmSpeed);
+					jQueryssLis.eq(12).css('left', spacing * 12).animate({'left':spacing * 11}, ssTmSpeed);
+				}
+			};
+			if (!ssTmOut) {
+				ssTmOut = setTimeout(sschangeview, 60);
+			} //sschangeview
+
+			var srchangeview = function() {
+				if (!rotateInProgress)	{
+					rotateInProgress = true;
+					var jQueryssLis = $('li.ssicon');
+					jQueryssLis.eq(0).css('left', 0).animate({'left':spacing}, ssTmSpeed);
+					jQueryssLis.eq(1).css('left', spacing).animate({'left':spacing * 2}, ssTmSpeed);
+					jQueryssLis.eq(2).css('left', spacing * 2).animate({'left':spacing * 3}, ssTmSpeed);
+					jQueryssLis.eq(3).css('left', spacing * 3).animate({'left':spacing * 4}, ssTmSpeed);
+					jQueryssLis.eq(4).css('left', spacing * 4).animate({'left':spacing * 5}, ssTmSpeed);
+					jQueryssLis.eq(5).css('left', spacing * 5).animate({'left':spacing * 6}, ssTmSpeed);
+					jQueryssLis.eq(6).css('left', spacing * 6).animate({'left':spacing * 7}, ssTmSpeed);
+					jQueryssLis.eq(7).css('left', spacing * 7).animate({'left':spacing * 8}, ssTmSpeed);
+					jQueryssLis.eq(8).css('left', spacing * 8).animate({'left':spacing * 9}, ssTmSpeed);
+					jQueryssLis.eq(9).css('left', spacing * 9).animate({'left':spacing * 10}, ssTmSpeed);
+					jQueryssLis.eq(10).css('left', spacing * 10).animate({'left':spacing * 11}, ssTmSpeed);
+					jQueryssLis.eq(11).css('left', spacing * 11).animate({'left':spacing * 12}, ssTmSpeed);
+
+					jQueryssLis.eq(jQueryssLis.length - 1).css('left', -spacing).animate({'left':0}, ssTmSpeed, function() {
+						$(this).prependTo('.ssviewer ul');
+						rotateInProgress = false;
+						ssTmOut = setTimeout(sschangeview, 60);
+					});
+				}
+			}; //srchangeview
+
+			$('.ssviewer ul li').hover(
+				function() {
+					clearTimeout(ssTmOut);
+				}, 
+				function() {
+					ssTmOut = setTimeout(sschangeview, 60);
+				}
+			);
+
+			$('.rolling').children('span.prev').click(function() {
+				clearTimeout(ssTmOut);
+				ssTmOut = setTimeout(sschangeview, 60);
+			});
+			$('.rolling').children('span.next').click(function() {
+				clearTimeout(ssTmOut);
+				ssTmOut = setTimeout(srchangeview, 60);
+			});
+
+			ssTmOut = setTimeout(sschangeview, 60);
+		}); 
+	});
+	/* e:footer rolling */
+	
+
+})();
+
+var cur = 0;
+$().ready(function () {
+	chg(0);
+	$(".mPicture2 .iPrev").click(function (){
+		if(cur == 0)
+		{
+			alert("처음 입니다.");
+			return false;
+		}
+		$(this).hide();
+		$(".mPicture2 .thumb ul li").eq(cur+4).fadeOut(function (){
+			cur--;
+			$(".mPicture2 .thumb ul li").eq(cur).fadeIn(function (){
+				$(".mPicture2 .iPrev").show();
+			});
+		});
+	});
+	$(".mPicture2 .iNext").click(function (){
+		if((cur+5) >= $(".mPicture2 .thumb ul li").size())
+		{
+			alert("더이상 없습니다.");
+			return false;
+		}
+		$(this).hide();
+		$(".mPicture2 .thumb ul li").eq(cur).fadeOut(function (){
+			$(".mPicture2 .thumb ul li").eq(cur+4).fadeIn(function (){
+				$(".mPicture2 .iNext").show();
+			});
+		});
+		cur++;
+	});
+	$(".mPicture2 .thumb ul li").click(function(){
+		chg( $(this).index() );
+	});
+
+	/* 포토자료실 */
+	if ( $(".lionsphoto").length )
+	{
+		var totalWidth = $(".lionsphoto .mList4 ul li").length * ($(".lionsphoto .mList4 ul li").width()+7);
+		$(".lionsphoto .mList4 .lst ul").css("width", totalWidth );
+	}
+	/* 수훈선수포토타임 */
+	/*
+	$(".mList2 li").each(function(e){
+		if ( $(".mList2 li").eq(e).height() > $(".mList2 li img").eq(e).height() )
+		{
+			var marginTop = $(".mList2 li").eq(e).height() - $(".mList2 li img").eq(e).height();
+			$(".mList2 li img").eq(e).css("margin-top",marginTop/2)
+		}
+	});
+	*/
+	/*
+	$(".event .mList1 li").each(function(e){
+		if ( $(".event .mList1 li").eq(e).height() > $(".event .mList1 li .i img").eq(e).height() )
+		{
+			var marginTop = $(".event .mList1  li .i").height() - $(".event .mList1 li .i img").eq(e).height();
+			$(".event .mList1 li .i img").eq(e).css("margin-top",marginTop/2)
+		}
+	});
+	*/
+
+	if ( $(".quickMenu").length )
+	{
+		var offset = $(".quickMenu").offset();
+		var topPadding = 0;
+		$(window).scroll(function() {
+			if ( $(window).scrollTop() > offset.top) {
+				$(".quickMenu").stop().animate({
+					marginTop: jQuery(window).scrollTop() - offset.top + topPadding
+				});
+			} else {
+				$(".quickMenu").stop().animate({
+					marginTop:0
+				});
+			};
+		});
+	}
+
+	
+	if ( $(".quickMenu_v2").length )
+	{
+		var offset = $(".quickMenu_v2").offset();
+		var topPadding = 0;
+		$(window).scroll(function() {
+			if ( $(window).scrollTop() > offset.top) {
+				$(".quickMenu_v2").stop().animate({
+					marginTop: jQuery(window).scrollTop() - offset.top + topPadding
+				});
+			} else {
+				$(".quickMenu_v2").stop().animate({
+					marginTop:0
+				});
+			};
+		});
+	}
+});
+
+function chg(n){
+	$(".bigPhoto").children().eq(0).fadeOut(function (){
+		$(this).attr("src","/img/history/gallery/" + $(".mPicture2 .thumb ul li").eq(n).children().children().children().attr("t")).fadeIn();
+	});
+	$(".bigPhoto").children().eq(1).html( $(".mPicture2 .thumb ul li").eq(n).children().children().next().html());
+	$(".mPicture2 .thumb  ul li").removeClass("selected");
+	$(".mPicture2 .thumb  ul li").eq(n).addClass("selected");
+}
+
+function setPng24(obj)
+{
+	obj.width = obj.height = 1;
+	obj.className = obj.className.replace(/\bpng24\b/i,'');
+	obj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image');"
+	obj.src = '';
+	return '';
+}
+

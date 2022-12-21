@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* name layerpopup */
+.smenu{display:none;width:98px;padding:10px 10px 3px 10px;position:absolute;background:#fff;border:1px solid #c2c2c2;text-align:left;filter: progid:DXImageTransform.Microsoft.Shadow(color="#e0e0e0", Direction=135, Strength=3);z-index:10} 
+.smenu ul {float:none;margin:0;padding:0;height:auto;}
+.smenu ul li{float:none !important;height:auto !important;margin:0;padding:0;margin-bottom:7px;font:11px/1.2 dotum;color:#666565}
+.smenu ul li img{vertical-align:top;margin:4px 0 0 3px;}
+.smenu2{display:none;width:110px;padding:10px 10px 3px 10px;position:absolute;background:#fff;border:1px solid #c2c2c2;text-align:left;filter: progid:DXImageTransform.Microsoft.Shadow(color="#e0e0e0", Direction=135, Strength=3);z-index:10} 
+.smenu2 ul {float:none !important;margin:0;padding:0;height:auto;}
+.smenu2 ul li{float:none !important;height:auto !important;margin:0;padding:0;margin-bottom:7px;font:11px/1.2 dotum;color:#666565}
+.smenu2 ul li img{vertical-align:top;margin:4px 0 0 3px;}

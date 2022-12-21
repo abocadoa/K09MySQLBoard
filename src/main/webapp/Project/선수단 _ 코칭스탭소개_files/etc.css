@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*
+#keyEtc{background:url(/img/keyvisual/bg_etc.jpg) 0 0 repeat-x;}
+#keyEtc .keyvisualBg{background:url(/img/keyvisual/key_etc.jpg) 0 0 no-repeat;text-align:left;width:1000px;height:120px;}
+#keyEtc h2{color:#fff;font-size:32px;letter-spacing:-1px;padding:20px 0 0 15px;}
+#keyEtc .info{color:#d3dce1;font-size:12px;font-weight:bold;padding:1px 0 0 18px;}
+#keyEtc .info em{display:block;color:#343d41;}
+*/
+
+.mLaw{margin:0 auto;padding-top:19px;width:820px;}
+.mLaw .hd h3{color:#086eb1;font-size:20px;border-bottom:3px solid #00050f;padding:0 0 10px 12px;}
+.mLaw .bd{padding:29px 12px 0;line-height:160%;}
+.mLaw .bd .tit{color:#00050f;}
+.mLaw .bd .tx1{padding-left:34px;}
+.mLaw .bd .tx2{text-align:right;}
+
+.lawEmail{margin:0 auto;padding-top:19px;width:820px;min-height:450px;}
+.lawEmail .hd h3{color:#086eb1;font-size:20px;border-bottom:3px solid #00050f;padding:0 0 10px 12px;}
+.lawEmail .bd{padding:29px 12px 0;text-align:center;}
+.lawEmail .bd .txt{color:#00050f;font-size:18px;line-height:160%;}
+.lawEmail .bd .txt em{color:#086eb1;font-weight:bold;}
+.lawEmail .bd .date{display:block;color:#00050f;font-size:14px;font-weight:bold;margin-top:35px;}
+
+.sitemap{padding-top:39px;}
+.sitemap .list1,.sitemap .list2{margin:0 auto;width:863px;zoom:1;}
+.sitemap .list1:after,.sitemap .list2:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.sitemap .con{float:left;margin-left:25px;_margin-left:24px;width:185px;}
+.sitemap .con h4{border-bottom:3px solid #00050f;color:#086eb1;font-size:20px;padding:0 0 10px 33px;}
+.sitemap .con h4.gab{margin-top:63px;}
+.sitemap .con ul{padding-top:5px;}
+.sitemap .con li .tit,.sitemap .con li .tit a{color:#00050f;font-size:14px;}
+.sitemap .con li{margin:16px 0 0 32px;}
+.sitemap .con li ul{border-left:1px solid #c2c2c2;margin:5px 0 0 5px;padding-top:0;}
+.sitemap .con li li{margin:0 0 0 20px;}
+.sitemap .list2{margin-top:40px;}
+
+
+
+

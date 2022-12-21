@@ -1,0 +1,362 @@
+jQuery(function($){
+	//table,ul css last 정의
+	$('.tbl_st1 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st1 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st1 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st2 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st2 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st2 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st3 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st3 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st3 > tbody > tr:last > th').css("border-bottom","0");
+	$('.tbl_st3 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st4 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st4 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st4 > tbody > tr:odd').addClass('bg');	
+	$('.tbl_st5 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5 > tbody > tr:odd').addClass('bg');	
+	$('.tbl_st5_1 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_1 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_1 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_1 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_2 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_2 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_2 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_2 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_3 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_3 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_3 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_3 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_4 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_4 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_4 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_4 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_5 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_5 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_5 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_5 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_6 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_6 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_6 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_6 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st5_7 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st5_7 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st5_7 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st5_7 > tbody > tr:odd').addClass('bg');
+	$('.tbl_pop3 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_pop3 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_pop3 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_pop3 > tbody > tr:odd').addClass('bg');	
+	$('.tbl_st8_1 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st8_1 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st8_1 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st8_1 > tbody > tr:last > th').css("border-bottom","0");
+	$('.tbl_st8_1 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st8_2 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st8_2 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st8_2 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st8_2 > tbody > tr:last > th').css("border-bottom","0");
+	$('.tbl_st8_2 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st9 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st9 > tfoot > tr > td:last-child').addClass('last');
+	$('.tbl_st9 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st9 > tbody > tr:last > th').css("border-bottom","0");
+	$('.tbl_st9 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st10 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st10 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st10_1 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st10_1 > tbody > tr:odd').addClass('bg');
+	$('.tbl_st12 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st12 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st12_1 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st12_1 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_st12_2 > tbody > tr > td:last-child').addClass('last');
+	$('.tbl_st12_2 > tbody > tr:last > td').css("border-bottom","0");
+	$('.tbl_top > tbody > tr:odd').addClass('bg');
+	$('.tbl_info li:last').css ("margin-right","0");
+	
+});
+
+function layerShow(name){	
+	$("."+name).show();
+}
+function layerHide(name){	
+	$("."+name).hide();
+}
+
+//팝업띄우기 스크롤 없는 거
+function popsn(url,trgt,w,h,l,t) { 
+    window.open(url,trgt,'width='+w+',height='+h+',left='+l+',top='+t+',scrollbars=no,resizable=no,copyhistory=no,toolbar=no,status=no'); 
+}
+//팝업띄우기 스크롤 있는 거
+function popsy(url,trgt,w,h) { 
+    window.open(url,trgt,'width='+w+',height='+h+',scrollbars=yes,resizable=no,copyhistory=no,toolbar=no,status=no,left=0,top=0'); 
+}
+
+//탭
+function over(imgName) {
+	imgName.getElementsByTagName("img").item(0).src = imgName.getElementsByTagName("img").item(0).src.replace(/(_on.gif|.gif)$/i, "_on.gif");
+	imgName.getElementsByTagName("img").item(0).src = imgName.getElementsByTagName("img").item(0).src.replace(/(_on.jpg|.jpg)$/i, "_on.jpg");
+}
+function out(imgName) {
+	imgName.getElementsByTagName("img").item(0).src = imgName.getElementsByTagName("img").item(0).src.replace(/(_on.gif|.gif)$/i, ".gif");
+	imgName.getElementsByTagName("img").item(0).src = imgName.getElementsByTagName("img").item(0).src.replace(/(_on.jpg|.jpg)$/i, ".jpg");
+}
+
+function setPng24(obj) {
+	obj.width=obj.height=1;
+	obj.className=obj.className.replace(/\bpng24\b/i,'');
+
+	obj.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+ obj.src +"',sizingMethod='image');"
+	//obj.src=''; 
+	return '';
+}
+
+jQuery(function($){
+	//  LNB
+	var sMenu = $('div.lnb');
+	var sItem = sMenu.find('>ul>li');
+	var ssItem = sMenu.find('>ul>li>ul>li');
+	var lastEvent = null;
+	
+	sItem.find('>ul').css('display','none');
+	sMenu.find('>ul>li>ul>li[class=active]').parents('li').attr('class','active');
+	sMenu.find('>ul>li[class=active]').find('>ul').css('display','block');
+
+	function sMenuToggle(event){
+		var t = $(this);
+
+		if (this == lastEvent) return false;
+		lastEvent = this;
+		setTimeout(function(){ lastEvent=null }, 200);
+		
+		if (t.next('ul').is(':hidden')) {
+			sItem.find('>ul').slideUp(100);
+			t.next('ul').slideDown(100);
+		} else if(!t.next('ul').length) {
+			sItem.find('>ul').slideUp(100);
+		} else {
+			t.next('ul').slideUp(100);
+		}
+		
+		if (t.parent('li').hasClass('active')){
+			t.parent('li').removeClass('active');
+		} else {
+			sItem.removeClass('active');
+			t.parent('li').addClass('active');
+		}
+	}
+	sItem.find('>a[href=#]').click(sMenuToggle).focus(sMenuToggle);
+	
+	function subMenuActive(){
+		ssItem.removeClass('active');
+		$(this).parent(ssItem).addClass('active');
+	}; 
+	ssItem.find('>a').click(subMenuActive).focus(subMenuActive);
+	
+	
+});
+
+function show_img(n){
+	for(i=1; i<=2; i++ ){
+		var bx = document.getElementById("st"+i);
+		if(i!=n){
+			bx.style.display="none";
+		}else{
+			bx.style.display="block";
+		}
+	}
+}
+
+
+function show_img2(n){
+	for(i=1; i<=2; i++ ){
+		var simg = document.getElementById("t_"+i);
+		var bx = document.getElementById("img_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src="/images/popup/btn_seat0"+i+"_on.gif"
+		}else{
+			bx.style.display="none";
+			simg.src="/images/popup/btn_seat0"+i+".gif"
+		}
+	}
+}
+
+function img_Change(n){
+	for(i=1; i<=4; i++ ){
+		var bx = document.getElementById("div_"+i);
+		if(i==n){
+			bx.style.display="block";
+			$(".list > li").eq(i-1).addClass('on')
+		}else{
+			bx.style.display="none";
+			$(".list li").eq(i-1).removeClass('on');
+		}
+	}
+}
+
+function img_Change2(n){
+	for(i=1; i<=10; i++ ){
+		var bimg = document.getElementById("b_"+i);
+		var timg = document.getElementById("t_"+i);
+		if(i==n){
+			bimg.style.display="block";
+			timg.style.display="block";
+		}else{
+			bimg.style.display="none";
+			timg.style.display="none";
+		}
+	}
+}
+
+function show_tab(n){
+	for(i=1; i<=4; i++ ){
+		var simg = document.getElementById("tab_"+i);
+		var bx= document.getElementById("div_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/intro/tab1_"+i+"_on.gif";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/intro/tab1_"+i+".gif";
+		}
+	}
+}
+
+function show_tab2(n){
+	for(i=1; i<=2; i++ ){
+		var simg = document.getElementById("t1_"+i);
+		var bx= document.getElementById("div_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/stat/tab_1_"+i+"_on.gif";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/stat/tab_1_"+i+".gif";
+		}
+	}
+}
+
+function photo_tab(m,n){
+	for(i=1; i<=8; i++ ){
+		var simg = document.getElementById("s_"+i);
+		var bx= document.getElementById("b_"+i);
+		if(i==m){
+			bx.style.display="block";
+			simg.src = "/images/intro/sImg_5_"+n+"_"+i+"_on.gif";
+			$("#b_"+i).hide().fadeIn(1000);;
+			$(".imgTab > li").eq(i-1).addClass('on').hide().fadeIn(1000);;
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/intro/sImg_5_"+n+"_"+i+".gif";
+			$(".imgTab li").eq(i-1).removeClass('on');
+		}
+	}
+}
+
+function map(n){
+	for(i=1; i<=3; i++ ){
+		var simg = document.getElementById("img_"+i);
+		var txt = document.getElementById("txt_"+i);
+		var bx = document.getElementById("map_"+i);
+		if(i==n){
+			bx.style.display="block";
+			txt.style.display="block";
+			simg.src="/images/score/tab2_"+i+"_on.gif"
+		}else{
+			bx.style.display="none";
+			txt.style.display="none";
+			simg.src="/images/score/tab2_"+i+".gif"
+		}
+	}
+}
+
+function history_tab(n){
+	for(i=1; i<=4; i++ ){
+		var simg = document.getElementById("t1_"+i);
+		var bx= document.getElementById("div_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/history/tab3_"+i+"_on.jpg";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/history/tab3_"+i+".jpg";
+		}
+	}
+}
+
+
+function history_tab2(n){
+	for(i=1; i<=8; i++ ){
+		var simg = document.getElementById("t2_"+i);
+		var bx= document.getElementById("sub2_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/history/tab4_"+i+"_on.jpg";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/history/tab4_"+i+".jpg";
+		}
+	}
+}
+
+function history_tab3(n){
+	for(i=1; i<=10; i++ ){
+		var simg = document.getElementById("t3_"+i);
+		var bx= document.getElementById("sub3_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/history/tab5_"+i+"_on.jpg";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/history/tab5_"+i+".jpg";
+		}
+	}
+}
+
+function history_tab4(n){
+	for(i=1; i<=10; i++ ){
+		var simg = document.getElementById("t4_"+i);
+		var bx= document.getElementById("sub4_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/history/tab6_"+i+"_on.jpg";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/history/tab6_"+i+".jpg";
+		}
+	}
+}
+
+
+function history_tab5(n){
+	for(i=1; i<=2; i++ ){
+		var simg = document.getElementById("t5_"+i);
+		var bx= document.getElementById("sub5_"+i);
+		if(i==n){
+			bx.style.display="block";
+			simg.src = "/images/history/tab7_"+i+"_on.jpg";
+		}else{			
+			bx.style.display="none";
+			simg.src = "/images/history/tab7_"+i+".jpg";
+		}
+	}
+}
+
+//div_chg(바꿀divNum,최종개수)
+function div_chg(n,m){
+	for(i=1; i<=m; i++ ){
+		var tab = document.getElementById("li_"+i);
+		var bx= document.getElementById("sec_"+i);
+		if(i==n){
+			bx.style.display="block";
+			tab.className="on";
+		}else{			
+			bx.style.display="none";
+			tab.className="";
+		}
+	}
+}

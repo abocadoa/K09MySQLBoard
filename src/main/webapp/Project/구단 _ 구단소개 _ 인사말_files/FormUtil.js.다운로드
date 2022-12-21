@@ -1,0 +1,510 @@
+﻿<!--
+//-----------------------------------------------------------------------------
+// FormUtil Class 생성
+//-----------------------------------------------------------------------------
+FormUtil = function(obj) {
+	this.obj = obj;
+}
+
+//-----------------------------------------------------------------------------
+// 폼 유효성 체크
+//
+// @return : true | false
+//-----------------------------------------------------------------------------
+FormUtil.prototype.success = function() {
+	for(var i = 0; i < this.obj.elements.length; i++) {
+		var f = this.obj[i];
+	
+		var fname = (f.getAttribute("FNAME") == null) ? f.name : f.getAttribute("FNAME");
+		// checkbox
+		if(f.type == "checkbox") {
+			if(!this.checkbox(f, fname)) {
+				return false;
+			}
+		}
+		
+		// radio
+		else if(f.type == "radio") {
+			if(!this.radio(f, fname)) {
+				return false;
+			}
+		}
+		else { // text, textarea, password, select
+			// <input required>
+			if(f.getAttribute("REQ") != null) {
+				var ftype = f.type;
+				var msg = " 입력하여 주세요";
+				if(ftype.indexOf("select") >= 0 || ftype == "file") {
+					msg = " 선택하여 주세요";
+				}
+				if(!f.value.notNull()) {
+					alert(fname + fname.josa("을/를") + msg);
+					if(f.type != "hidden") f.focus();
+				return false;
+				}
+			} 
+			// <input num>
+			if(f.getAttribute("NUM") != null && f.value != "") {
+				if(!f.value.isNum()) {
+					alert(fname + fname.josa("은/는") + " 숫자만 입력 가능 합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			// <input money>
+			if(f.getAttribute("MONEY") != null && f.value != "") {
+				if(!f.value.toMoney()) {
+					alert(fname + fname.josa("은/는") + " 숫자만 입력 가능 합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input eng>
+			if(f.getAttribute("ENG") != null && f.value != "") {
+				if(!f.value.isEng()) {
+					alert(fname + fname.josa("은/는") + " 영어만 입력 가능 합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input eng>
+			if(f.getAttribute("ISDATE") != null && f.value != "") {
+				if(!isValidDate(f.value)) {
+					alert("날짜형식이 올바르지 않습니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input numeng>
+			if(f.getAttribute("NUMENG") != null && f.value != "") {
+				if(!f.value.NumEng()) {
+					alert(fname + fname.josa("은/는") + " 숫자와 영어만 입력 가능 합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input han>
+			if(f.getAttribute("HAN") != null && f.value != "") {
+				if(!f.value.isKor()) {
+					alert(fname + fname.josa("은/는") + " 한글만 입력 가능 합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input userid>
+			if(f.getAttribute("USERID") != null && f.value != "") {
+				if(!f.value.isUserid()) {
+					alert(fname + fname.josa("은/는") + " 숫자와 영어만 입력 가능합니다.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				} 
+			}
+			
+			// <input type="file" deny="value">
+			if(f.getAttribute("DENY") != null && f.type == "file" && f.value != "") {
+				var ext = f.value.getExt().toLowerCase();
+				var ext2 = f.getAttribute("DENY").toLowerCase();
+				if(ext2.indexOf(ext) >= 0) {
+					alert("확장자가 " + f.getAttribute("DENY").toUpperCase() + " 인 파일은 업로드 하실 수 없습니다.");
+					return false;
+				}
+			
+			}
+			
+			// <input type="file" deny="value">
+			if(f.getAttribute("ALLOW") != null && f.type == "file" && f.value != "") {
+				var ext = f.value.getExt().toLowerCase();
+				var ext2 = f.getAttribute("ALLOW").toLowerCase();
+				if(ext2.indexOf(ext) < 0) {
+					alert("확장자가 " + f.getAttribute("ALLOW").toUpperCase() + " 인 파일만 업로드 가능 합니다.");
+					return false;
+				}
+			}
+
+			
+			// <input max="10">
+			if(f.getAttribute("MAX") != null) {
+				var tmpLen = f.value.getLength();
+				if(tmpLen > parseInt(f.getAttribute("MAX"))) {
+					alert(fname + fname.josa("은/는") + " " + f.getAttribute("MAX") + "자 이하로 입력하여 주세요.");
+					f.value = "";
+					if(f.type != "hidden") f.focus();
+					return false;
+				}
+			}
+
+			
+			// <input maxval="10">
+			if(f.getAttribute("MAXVAL") != null) {
+				var val = f.value;
+				if(val > parseInt(f.getAttribute("MAXVAL"))) {
+					alert(fname + fname.josa("은/는") + " " + f.getAttribute("MAXVAL") + "까지 입력 가능 합니다.");
+					f.value = f.defaultValue;
+					if(f.type != "hidden") f.focus();
+					return false;
+				}
+			}
+			
+			// <input min="10">
+			if(f.getAttribute("MIN") != null) {
+				var tmpLen = f.value.getLength();
+				if(tmpLen < parseInt(f.getAttribute("MIN"))) {
+					alert(fname + fname.josa("은/는") + " " + f.getAttribute("MIN") + "자 이상으로 입력하여 주세요.");
+					if(f.type != "hidden") f.focus();
+					return false;
+				}
+			}
+			
+			// <input len="10">
+			if(f.getAttribute("LEN") != null) {
+				var tmpLen = f.value.getLength();
+				var val = f.getAttribute("LEN");
+				if(val.indexOf(val.noNum()) > 0) {
+					var num1 = val.substring(0, val.indexOf(val.noNum()));
+					var num2 = val.substring(val.lastIndexOf(val.noNum()) + 1, val.length);
+					if(tmpLen < parseInt(num1) || tmpLen > parseInt(num2)) {
+						alert(fname + fname.josa("은/는") + " " + num1 + "자 이상 " + num2 + "자 이하로 입력하여 주세요");
+						if(f.type != "hidden") f.focus();
+						return false;
+					}
+				}
+				else {
+					if(tmpLen != parseInt(val)) {
+						alert(fname + fname.josa("은/는") + " " + val + "자리 입니다.");
+						if(f.type != "hidden") f.focus();
+						return false;
+					}
+				}
+			}
+
+			// <input COMPARE="name">
+			if(f.getAttribute("COMPARE") != null) {
+				if(f.value != $("#" + f.getAttribute("COMPARE")).val())
+				{
+					alert(fname + fname.josa("이/가") + " 일치하지 않습니다.");
+					$("#" + f.getAttribute("COMPARE")).val("");
+					$("#" + f.getAttribute("COMPARE")).focus();
+					return false;
+				}
+			} 
+		}
+	}
+	
+	for(var i = 0; i < this.obj.elements.length; i++) {
+		var f = this.obj[i];
+		// <input phone="name">
+		if(f.getAttribute("PHONE") != null) {
+			var val = "";
+			if(f.getAttribute("PHONE") == "") {
+				val = f.value
+			} else {
+				val = this.getValue("PHONE", f.getAttribute("PHONE"));
+			}
+			if(!val.isPhone()) {
+				alert("올바른 전화번호가 아닙니다.\n\n다시 확인하여 주세요");
+				if(f.type != "hidden") f.focus();
+				return false; 
+			}
+		}
+		
+		// <input mobile="name">
+		if(f.getAttribute("MOBILE") != null) {
+			var val = "";
+			if(f.getAttribute("MOBILE") == "") {
+				val = f.value
+			} else {
+				val = this.getValue("MOBILE", f.getAttribute("MOBILE"));
+			}
+			if(!val.isMobile()) {
+				alert("올바른 핸드폰번호가 아닙니다.\n\n다시 확인하여 주세요");
+				if(f.type != "hidden") f.focus();
+				return false; 
+			} 
+		}
+		
+		// <input jumin="name">
+		if(f.getAttribute("JUMIN") != null) {
+			var val = "";
+			if(f.getAttribute("JUMIN") == "") {
+				val = f.value;
+			} else {
+				val = this.getValue("JUMIN", f.getAttribute("JUMIN"));
+			}
+			
+			if(!val.isJumin()) {
+				alert("올바른 주민등록 번호가 아닙니다.\n\n다시 확인하여 주세요");
+				if(f.type != "hidden") f.focus();
+				return false; 
+			}
+		}
+		
+		
+		// <input email="name">
+		if(f.getAttribute("EMAIL") != null) {
+			var val = "";
+			if(f.getAttribute("EMAIL") == "") {
+				val = f.value
+			} else {
+				val = this.getValue("EMAIL", f.getAttribute("EMAIL"));
+			}
+		
+			if(!val.isEmail()) {
+				alert("유효한 이메일이 아닙니다.\n\n다시 확인하여 주세요");
+				if(f.type != "hidden") f.focus();
+				return false; 
+			}
+		}
+		
+		// <input biznum="name">
+		if(f.getAttribute("BIZNUM") != null) {
+			var val = "";
+			if(f.getAttribute("BIZNUM") == "") {
+				val = f.value
+			} else {
+				val = this.getValue("BIZNUM", f.getAttribute("BIZNUM"));
+			}
+			
+			if(!val.isBizNum()) {
+				alert("유효한 사업자 등록 번호가 아닙니다.\n\n다시 확인하여 주세요");
+				if(f.type != "hidden") f.focus();
+				return false; 
+			} 
+		} 
+		
+	}
+	return true;
+}
+
+//-----------------------------------------------------------------------------
+// Checkbox 일때 유효성 체크
+//
+// @return : true | false
+//-----------------------------------------------------------------------------
+FormUtil.prototype.checkbox = function(f, fname) {
+
+	var chkObj = eval("this.obj." + f.name);
+	// 체크박스를 선택하여야 할 때
+	var c = 0;
+	var len = chkObj.length;
+	if(len) {
+		for(var j = 0; j < len; j++) {
+			if(chkObj[j].checked) c++;
+		}
+	} else {
+		if(chkObj.checked) c = 1;
+	}
+	
+	if(f.getAttribute("REQ") != null) {
+		if(c == 0) {
+			alert(fname + fname.josa("을/를") + " 선택하여 주세요");
+			if(len)
+				chkObj[0].focus();
+			else
+				chkObj.focus();
+			return false;
+		}
+	}
+	
+	if(f.getAttribute("MAX") != null) {
+		var val = f.getAttribute("MAX");
+		if(c > parseInt(val)) {
+			alert(fname + fname.josa("은/는") + " 최대 " + val + "개 이하로 선택 하셔야 합니다.");
+			if(len)
+				chkObj[0].focus();
+			else
+				chkObj.focus();
+			return false;
+		}
+	}
+	
+	if(f.getAttribute("MIN") != null) {
+		var val = f.getAttribute("MIN");
+		if(c < parseInt(val)) {
+			alert(fname + fname.josa("은/는") + " 최소 " + val + "개 이상 선택 하셔야 합니다.");
+			if(len)
+				chkObj[0].focus();
+			else
+				chkObj.focus();
+			return false;
+		}
+	}
+
+	if(f.getAttribute("LEN") != null) {
+		var val = f.getAttribute("LEN");
+		if(val.indexOf(val.noNum()) > 0) {
+			var num1 = val.substring(0, val.indexOf(val.noNum()));
+			var num2 = val.substring(val.lastIndexOf(val.noNum()) + 1, val.length);
+			if(c < parseInt(num1) || c > parseInt(num2)) {
+				alert(fname + fname.josa("은/는") + " " + num1 + "개 이상 " + num2 + "개 이하로 선택 하셔야 합니다.");
+				return false;
+			}
+		} else {
+			if(c != parseInt(val)) {
+				alert(fname + fname.josa("은/는") + " " + val + "개 선택 하셔야 합니다.");
+				if(f.type != "hidden") f.focus();
+				return false;
+			}
+		}
+	} 
+	return true;
+}
+
+//-----------------------------------------------------------------------------
+// Radio 유효성 체크
+//
+// @return : true | false
+//-----------------------------------------------------------------------------
+FormUtil.prototype.radio = function(f, fname) {
+
+	var chkObj = eval("this.obj." + f.name);
+	if(f.getAttribute("REQ") != null) {
+		var c = 0;
+		var len = chkObj.length;
+		if(len) {
+			for(var j = 0; j < len; j++) {
+				if(chkObj[j].checked) c++;
+			}
+		} else {
+			if(chkObj.checked) c = 1;
+		}
+		if(c == 0) {
+			alert(fname + fname.josa("을/를") + " 선택하여 주세요");
+			if(len)
+				chkObj[0].focus();
+			else
+				chkObj.focus();
+			return false;
+		}
+	}
+	return true;
+}
+
+//-----------------------------------------------------------------------------
+// 체크되어 있는 갯수를 리턴해 준다.
+//
+// @return : int
+//-----------------------------------------------------------------------------
+FormUtil.prototype.checked = function(btn) {
+	var len = btn.length;
+	var c = 0;
+	if(len) {
+		for(var j = 0; j < len; j++) {
+			if(btn[j].checked) c++;
+		}
+	} else {
+		if(btn.checked) c = 1;
+	}
+	return c;
+}
+
+//-----------------------------------------------------------------------------
+// 해당 name의 값이 같은 filed를 구한다.
+//
+// @return : String
+//-----------------------------------------------------------------------------
+FormUtil.prototype.getValue = function(name, value) {
+	var val = "";
+	for(var j = 0; j < this.obj.elements.length; j++) {
+		if(eval("this.obj[j].getAttribute(\"" + name + "\")") != null && eval("this.obj[j].getAttribute(\"" + name + "\")") == value) {
+			if(val == "") {
+				val += this.obj[j].value;
+			} else {
+				val += "@" + this.obj[j].value;
+			}
+		}
+	}
+	return val;
+}
+
+
+
+function isValidDate(obj)
+{
+	var tmp = obj.onlyNum();
+	if(tmp.getLength() != 8)
+		return false;
+	
+	var iYY = tmp.substr(0,4);
+	var iMM = tmp.substr(4,2)-1;
+	var iDD = tmp.substr(6,2);
+	
+	var vDate = new Date(iYY,iMM,iDD);
+	if( vDate.getFullYear() != iYY || vDate.getMonth()    != iMM || vDate.getDate()     != iDD )
+		return false;
+ return true;
+}
+
+function DateCompletion (obj)
+{
+	if($("#" + obj).len() == 4 || $("#" + obj).length == 7)
+		$(obj).value = $F(obj) + "-";
+}
+
+function DateTxtCheck(obj)
+{
+	if($("#" + obj).val() && $("#" + obj).len() != 10)
+	{
+		alert("올바른 날짜 형식이 아닙니다.");
+		$(obj).value = $(obj).defaultValue;
+		$(obj).select();
+		return false;
+	}
+	if($F(obj).length == 10)
+	{
+		if(!isValidDate($F(obj)))
+		{
+			alert("올바른 날짜 형식이 아닙니다.");
+			$(obj).value = $(obj).defaultValue;
+			$(obj).select();
+			return false;
+		}
+	}
+}
+
+/******************************************************************************
+* Form에 관련된 메서드
+* 
+* 1. text, textarea
+* required : 값이 없으면 경고
+* num : 값에 숫자만 가능
+* eng : 값에 영어만 가능
+* han : 값에 한글만 가능
+* numeng : 값에 숫자와 영어만 가능
+* min=value : 최소 value자 이상
+* max=value : 최대 value자 이하
+* len=value : 정확하게 value자만 가능
+* len=start~end : start자에서 end자까지 가능
+* userid : 영어 숫자만 가능하고 첫문자는 영어로
+* phone=value : value가 ""면 이 필드만 아니면 value가 같은 phone에 관련된 모든 필드 조사
+* mobile=value : value가 ""면 이 필드만 아니면 value가 같은 mobile에 관련된 모든 필드 조사
+* email=value : value가 ""면 이 필드만 아니면 value가 같은 email에 관련된 모든 필드 조사
+* jumin=value : value가 ""면 이 필드만 아니면 value가 같은 jumin에 관련된 모든 필드 조사
+* biznum=value : value가 ""면 이 필드만 아니면 value가 같은 biznum에 관련된 모든 필드 조사
+* 2. select
+* required : 값이 없으면 경고
+* 3. radio
+* required : 아무것도 선택되지 않으면 경고
+* 4. checkbox
+* required : 아무것도 선택되지 않으면 경고
+* min=value : 최소 value개 이상 가능
+* max=value : 최대 value개 이하 가능
+* len=value : 정확하게 value개 가능
+* len=start~end : start개에서 end개 까지 가능
+* 5. file
+* required : 아무것도 선택되지 않으면 경고
+* allow=value : 확장자가 value 인 파일만 업로드 가능 (allow="gif jpg jpeg png")
+* deny=value : 확장자가 value 인 파일은 업로드 불가능
+*****************************************************************************/
+//-->

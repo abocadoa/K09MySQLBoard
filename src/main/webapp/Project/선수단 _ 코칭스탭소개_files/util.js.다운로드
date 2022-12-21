@@ -1,0 +1,335 @@
+var mouseX, mouseY;
+var nametagViewID;
+
+jQuery(document).ready(function () {
+	jQuery("#wrap").click(function(e){
+		mouseX = e.pageX;
+		mouseY = e.pageY;
+		if(jQuery("#nametag").css("display") == "block")
+			jQuery("#nametag").slideUp("fast",function () {jQuery(this).remove();});
+	});
+
+});
+
+var UTIL = {
+	
+	sesCheck : function () {
+		if(UID != "")
+		{
+			jQuery.ajax({
+				type	: "get",
+				url		: "/include/SessionCheck.asp",
+				dataType: "text",
+				success	: function(res) {
+					UID = res;
+				}
+			});
+		}		
+	},
+
+	nameTag : function (id){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+
+		jQuery("#nametag").remove();
+		jQuery.ajax({
+			type	: "POST",
+			url		: "/include/nametag.asp",
+			data	: {"TID" : id},
+			dataType: "html",
+			timeout	: 6000,
+			success	: function(res) {
+				if(res.split("/")[0] == "LOGIN")
+				{
+					if(!confirm("로그인 후 이용가능 합니다.\n\n로그인 페이지로 이동 하시겠습니까?"))
+						return false;
+					$("#footerLoginForm").submit();
+					
+				}
+				else if (res.split("/")[0] == "ERROR")
+				{
+					alert(res.split("/")[1]);
+					return false;
+				}
+				else
+				{
+					jQuery("body").append(res);
+					jQuery("#nametag").css("left",mouseX + 15).css("top",mouseY - 10).hide().slideDown();
+					nameTagView = true;
+				}
+			},
+			error	: function (err) {
+				alert(err.responseText);
+			}
+		});
+		nametagViewID = id;
+	},
+
+	idblock : function (fg,id, log){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+		var msg = "해당 회원의 게시물을 차단 하시겠습니까?";
+		if(fg == "M")
+			var msg = "해당 회원의 쪽지를 차단 하시겠습니까?";
+		if(!confirm(msg))
+			return false;
+		log = "";
+		jQuery.ajax({
+			type	: "POST",
+			url		: "/include/data/data.member.asp",
+			data	: {"mode" : "IDBLOCK", "flag" : fg, "bid" : id, "blog" : log},
+			dataType: "text",
+			timeout	: 6000,
+			success	: function(res) {
+				var r = res.split("/");
+				if(r[0] == "ERROR"){
+					alert(r[1]);
+				}
+				else
+				{
+					alert("해당 아이디 차단 되었습니다.");
+					jQuery("#nametag").slideUp("fast");
+				}
+			},
+			error	: function (err) {
+				alert(err.responseText);
+			}
+		});
+		
+	},
+
+	removeblock : function (fg,id, log){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+		var msg = "해당 회원의 게시물 차단을 해제 하시겠습니까?";
+		if(fg == "M")
+			var msg = "해당 회원의 쪽지 차단을 해제 하시겠습니까?";
+		if(!confirm(msg))
+			return false;
+		log = "";
+		jQuery.ajax({
+			type	: "POST",
+			url		: "/ajax/mypage_ajax.asp",
+			data	: {"act" : "BLOCKCANCEL", "flag" : fg, "bid" : id, "blog" : log},
+			dataType: "text",
+			timeout	: 6000,
+			success	: function(res) {
+				alert("아이디 차단이 해제 되었습니다.");
+				jQuery("#nametag").slideUp("fast");
+			},
+			error	: function (err) {
+				alert(err.responseText);
+			}
+		});
+		
+	},
+
+	care : function (){
+	
+	},
+
+	memosend : function (id){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+		hs.onDimmerClick = function() {
+			return false;
+		}
+
+/*
+// highslide - > 일반 팝업 변경 요청 
+		$("#footer").append("<a id=\"tmpLnk\"></a>");
+		$("#tmpLnk").attr("href","/fan/pop_whole.asp?pmode=G&id=" + id);
+		var ele = document.getElementById("tmpLnk");
+		hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 380});
+		$("#tmpLnk").remove();
+		
+*/
+		window.open("/popup/pop_whole_popup_fan.asp?pmode=G&id=" + id,'pop_whole_popup','width=501px, height=380px');
+	},
+
+	fanletterSend : function (pcode){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+		hs.onDimmerClick = function() {
+			return false;
+		}
+
+		$("#footer").append("<a id=\"tmpLnk\"></a>");
+		$("#tmpLnk").attr("href","/roster/pop_fanletter.asp?pcode=" + pcode);
+		var ele = document.getElementById("tmpLnk");
+		hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 380});
+		$("#tmpLnk").remove();
+	},
+
+	daumtvpot : function (){
+		this.sesCheck();
+		if(UID == "")
+		{
+			loginCheck ();
+			return false;
+		}
+		hs.onDimmerClick = function() {
+			return false;
+		}
+
+		$("#footer").append("<a id=\"tmpLnk\"></a>");
+		$("#tmpLnk").attr("href","/fan/pop_whole.asp?pmode=H");
+		var ele = document.getElementById("tmpLnk");
+		hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 560});
+		$("#tmpLnk").remove();
+	},
+	
+
+	zippopup : function (){
+		hs.onDimmerClick = function() {
+			return false;
+		}
+
+/*
+// highslide - > 일반 팝업 변경 요청 
+		$("#footer").append("<a id=\"tmpLnk\"></a>");
+		$("#tmpLnk").attr("href","/member/pop_whole.asp?pmode=J");
+		var ele = document.getElementById("tmpLnk");
+		hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 580});
+		$("#tmpLnk").remove();
+*/
+		window.open("/popup/pop_whole_popup.asp?pmode=J",'pop_whole_popup','width=501px, height=580px,scrollbars=yes ');
+		
+	},
+
+	zipsearch : function (){
+		if($("#zipkey").val().length < 2)
+		{
+			alert("검색하실 동,읍,면명을 입력하여 주세요");
+			$("#zipkey").focus();
+			return false;
+		}
+		jQuery.ajax({
+			type	: "POST",
+			url		: "/include/zipcode.asp",
+			data	: {"keyword" : $("#zipkey").val()},
+			dataType: "text",
+			timeout	: 6000,
+			success	: function(res) {
+				$("#lst").html (res).hide().slideDown();
+			},
+			error	: function (err) {
+				$("#lst").html (err.responseText).hide().slideDown();
+			}
+		});
+		
+	},
+	zipsearch_popup : function (){
+		if($("#zipkey").val().length < 2)
+		{
+			alert("검색하실 동,읍,면명을 입력하여 주세요");
+			$("#zipkey").focus();
+			return false;
+		}
+		jQuery.ajax({
+			type	: "POST",
+			url		: "/include/zipcode_popup.asp",
+			data	: {"keyword" : $("#zipkey").val()},
+			dataType: "text",
+			timeout	: 6000,
+			success	: function(res) {
+				$("#lst").html (res).hide().slideDown();
+			},
+			error	: function (err) {
+				$("#lst").html (err.responseText).hide().slideDown();
+			}
+		});
+		
+	},
+
+	zipchk : function (z1,z2,addr){
+		parent.$("#zipcode1").val(z1);
+		parent.$("#zipcode2").val(z2);
+		parent.$("#address1").val(addr);
+		parent.$("#address2").focus();
+		parent.hs.close();
+	},
+
+	zipchk_popup : function (z1,z2,addr){
+		opener.$("#zipcode1").val(z1);
+		opener.$("#zipcode2").val(z2);
+		opener.$("#address1").val(addr);
+		opener.$("#address2").focus();
+		window.close();
+	},
+
+	share : function (url, media, msg) {
+		var sortUrl = "";
+		var option = "toolbar=yes,directories=yes,status=yes,menubar=yes,resizable=yes,scrollbars=yes";
+		var retUrl = "http://api.bit.ly/v3/shorten?login=creditju&apiKey=R_97fc2e9b077e2d4e1e4e9901b9afb3b8&longUrl=" + encodeURIComponent(url) + "&callback=?&format=json";
+		jQuery.ajax({
+			type		: 'GET',
+			url			: retUrl,
+			dataType	: 'json',
+			timeout		: 6000,
+			success		: function(data, status) {
+				sortUrl = data.data.url;
+			},
+			complete	: function () {
+								
+				if(media == "T")
+					window.open('http://twitter.com/?status=' + encodeURIComponent(msg + ' #samsunglions') + '+' + sortUrl, '_blank', option);
+				else if(media == "F")
+					window.open("http://www.facebook.com/sharer.php?u=" + encodeURIComponent(sortUrl) + "&t=" + encodeURIComponent(msg), "_blank", option+",width=626,height=436");
+				else if(media == "M")
+					window.open("http://me2day.net/posts/new?new_post[body]=" + encodeURIComponent(msg) + " " + encodeURIComponent(sortUrl),'_blank', option + "");
+				else if(media == "C")
+				{
+					var txt = sortUrl + " [출처 : 삼성라이온즈]";
+					var cb = window.clipboardData.setData ("text",txt);
+					alert("URL 주소가 복사 되었습니다.");
+
+//					hs.onDimmerClick = function() {
+//						return false;
+//					}
+//
+//					$("#footer").append("<a id=\"tmpLnk\"></a>></a>");
+//					$("#tmpLnk").attr("href","/fan/pop_whole.asp?pmode=F");
+//					var ele = document.getElementById("tmpLnk");
+//					hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 234});
+//					$("#tmpLnk").remove();
+				}
+			},
+			error		: function (request, status, error) {
+				alert("Error status : " + status);		
+			}
+		});
+	},
+	
+	real_check : function (){
+		hs.onDimmerClick = function() {
+			return false;
+		}
+
+		$("#footer").append("<a id=\"tmpLnk\"></a>");
+		$("#tmpLnk").attr("href","/member/pop_whole.asp?pmode=A");
+		var ele = document.getElementById("tmpLnk");
+		hs.htmlExpand(ele,{objectType: 'iframe', width: 501, height: 461});
+		$("#tmpLnk").remove();
+	}
+}

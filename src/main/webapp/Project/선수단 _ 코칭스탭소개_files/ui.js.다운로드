@@ -1,0 +1,37 @@
+$(function(){
+	//gnb
+	var gnbMouse = false, gnb_focus = false;
+	$('#gnb3 > ul > li').bind({
+		'mouseenter' : function(){
+			$('.dep2').hide();
+			$(this).find('.dep2').show();
+		}
+	});
+
+	$('#gnb3 > ul').mouseleave (function(){
+		$('.dep2').hide();
+		$(this).find('.dep2.selected').show();
+	});
+
+	$('#gnb3 > ul > li > a').focus(
+		function() {
+			$('.dep2').hide();
+			$(this).next('.dep2').show();
+		}
+	);
+
+	$('#gnb3 a').on({
+		"focus" : function(){
+			gnb_focus = true;
+		},
+		"blur" : function() {
+			gnb_focus = false;
+			setTimeout(function(){
+				if(!gnb_focus) {
+					$('.dep2').hide();
+					$(this).next('.dep2').show();
+				}
+			},100)
+		}
+	});
+});

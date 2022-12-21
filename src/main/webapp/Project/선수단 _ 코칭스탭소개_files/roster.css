@@ -1,0 +1,210 @@
+@charset "utf-8";
+
+.staffList .fString,.staffList .sString,.staffList .ssString{border-top:2px solid #4261ae;padding-top:8px;}
+.staffList .fString .hd,.staffList .sString .hd,.staffList .ssString .hd{margin-bottom:25px;}
+.staffList .fString .hd h4,.staffList .sString .hd h4,.staffList .ssString .hd h4{background:url(/img/roster/k_roster.png?v=3) 0 0 no-repeat;text-indent:-9999px;height:23px;}
+.staffList .fString{margin-top:17px;}
+.staffList .sString{margin-top:30px;}
+.staffList .sString .hd h4{background-position:0 -50px;}
+.staffList .sString .mList3 li.selected a .cov{display:block;}
+.staffList .sString .mList3 li.selected a .txt{color:#9ecefe;font-size:18px;line-height:220%;}
+.staffList .sString .mList3 li.selected a .txt em{color:#fff;}
+.staffList .sString .mList3 li.selected a .txt .nu,.staffList .sString .mList3 li.selected a .txt .na{display:inline;}
+
+.staffList .ssString{margin-top:30px;}
+.staffList .ssString .hd h4{background-position:0 -905px;}
+.staffList .ssString .mList3 li.selected a .cov{display:block;}
+.staffList .ssString .mList3 li.selected a .txt{color:#9ecefe;font-size:18px;line-height:220%;}
+.staffList .ssString .mList3 li.selected a .txt em{color:#fff;}
+.staffList .ssString .mList3 li.selected a .txt .nu,.staffList .sString .mList3 li.selected a .txt .na{display:inline;}
+
+
+.mRoster1 .mTab2{margin-top:;}
+.mRoster1 .list{border-top:2px solid #4261ae;padding:8px 0 0;}
+.mRoster1 .list h4{background:url(/img/common/k_ico.png) -460px -1242px no-repeat;color:#000;font-size:14px;padding:0 0 0 15px;}
+.mRoster1 .list h4 em{font-family:verdana;font-size:24px;vertical-align:-4px;}
+.mRoster1 .list .mList3{margin-top:25px;}
+.mRoster1 .list .mList3 li.selected a .txt{right:-9999px;}
+
+.mRoster2{padding-top:30px;zoom:1;}
+.mRoster2:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.mRoster2 .hd{margin-bottom:17px;}
+.mRoster2 .hd h3{background:url(/img/roster/k_roster.png?v=5) 0 -250px no-repeat;text-indent:-9999px;height:23px;}
+.mRoster2 .bd .img{display:block;margin-bottom:15px;}
+.mRoster2 .bd p{color:#5a5a5a;}
+.mRoster2 .bd p .btn a{color:#086eb1;text-decoration:underline;}
+
+.mRoster2 .manager,.mRoster2 .bestBatter{float:left;width:457px;}
+.mRoster2 .captain,.mRoster2 .bestPitcher{float:right;width:457px;}
+.mRoster2 .bestBatter,.mRoster2 .bestPitcher{margin-top:15px;}
+
+.captain .hd h3{background-position:0 -298px;}
+.bestBatter .hd h3{background-position:0 -350px;}
+.bestPitcher .hd h3{background-position:0 -400px;}
+
+.pitcher,.hitter{margin-top:17px;padding-top:8px;}
+.pitcher .hd,.hitter .hd{margin-bottom:25px;}
+.pitcher .hd h4,.hitter .hd h4{background:url(/img/roster/k_roster.png?v=3) 0 -100px no-repeat;text-indent:-9999px;height:23px;}
+.hitter{margin-top:30px;}
+.hitter .hd h4{background-position:0 -150px;}
+
+.newcomerList .mList3 li.selected a .txt{color:#9ecefe;font-size:18px;line-height:220%;}
+.newcomerList .mList3 li.selected a .txt em{color:#fff;}
+.newcomerList .mList3 li.selected a .txt .nu,.newcomerList .mList3 li.selected a .txt .na{display:inline;}
+
+.rebabilitationList .mList3 li.selected a .txt{color:#9ecefe;font-size:18px;line-height:220%;}
+.rebabilitationList .mList3 li.selected a .txt em{color:#fff;}
+.rebabilitationList .mList3 li.selected a .txt .nu,.rebabilitationList .mList3 li.selected a .txt .na{display:inline;}
+
+.cheerleader .con{border-top:2px solid #4261ae;margin-top:17px;padding-top:35px}
+
+/*.bestPlayer .con{background:url(/img/roster/k_bestPlayer.jpg) 0 0 no-repeat #fff;margin-top:20px;padding:14px 0 0 152px;min-height:795px;}*/
+.bestPlayer .con{margin-top:20px;}
+.bestPlayer .con .txt{color:#000;padding:30px 0 0;}
+.bestPlayer .con .txt .img{padding-top:30px;}
+.bestPlayer .con .txt dd{padding-bottom:30px;}
+
+.playerGraph{border-top:1px solid #e7e7e7;margin-top:50px;padding-top:50px;}
+.playerGraph .hd{text-align:center;}
+.playerGraph .hd h3{background:url(/img/roster/k_roster.png?v=3) 50% -700px no-repeat;text-indent:-9999px;margin-bottom:3px;height:25px;}
+.playerGraph .hd .link{color:#c0c0c0;}
+.playerGraph .hd .link .t{color:#1c1c1c;padding-right:3px;}
+.playerGraph .hd .link .bar{padding:0 5px;}
+.playerGraph .hd .link a{color:#7b7b7b;}
+.playerGraph .hd .link a.selected{color:#3f99cc;_border:0;}
+.playerGraph .hd .link .current{background:url(/img/roster/k_roster.png?v=3) -274px -743px no-repeat;padding-left:18px;}
+.playerGraph .graph{margin-top:40px;}
+
+.rosterMain #body{width:100%;}
+.rosterMain #body .breadcrumb,
+.rosterMain #body .introManager,
+.rosterMain #body .playerGraph,
+.rosterMain #body .playerGallery{margin-left:auto;margin-right:auto;width:960px;}
+
+.introManager{clear:both;padding-top:40px;}
+.introManager .gLeft{width:480px;}
+.introManager .gRight{width:440px;}
+.introManager .hd .tit{float:left;width:530px;}
+.introManager .hd .score{float:right;width:440px;*line-height:200%;;}
+.introManager .hd{position:relative;height:57px;}
+.introManager .hd .btnDetail{position:absolute;top:16px;right:0;}
+.introManager .hd h3{/*background:url(/img/roster/k_roster.png) 0 -500px no-repeat;text-indent:-9999px;*/color:#00050f;font-size:24px;margin-bottom:3px;height:23px;}
+.introManager .hd,.introManager .bd{zoom:1;}
+.introManager .hd:after,.introManager .bd:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.introManager .bd p{line-height:180%;}
+.introManager .bd p .mBtn1t2{padding-left:15px;}
+.introManager .sns .t{display:block;float:left;font-weight:normal;padding:4px 7px 0 0;}
+.introManager .score{letter-spacing:-1px;margin-top:9px;}
+.introManager .score .t{color:#000;font-size:14px;}
+.introManager .score .d,.introManager .score .w{border-left:1px dashed #c2c2c2;color:#7e7e7e;margin-left:12px;padding:8px 0 6px 12px;}
+.introManager .score em{color:#000;font-size:24px;font-weight:bold;vertical-align:-4px;font-family:verdana;}
+.introManager .score .l,.introManager .score .s{padding-left:12px;}
+
+.playerNews{background-color:#f9f9f9;margin-top:40px;}
+.playerNews .playerNewsBg{position:relative;margin:0 auto;padding:50px 0;width:960px;zoom:1;}
+.playerNews .playerNewsBg:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.playerNews .hd{height:50px;}
+.playerNews .hd h3{background:url(/img/roster/k_roster.png?v=3) 0 -550px no-repeat;text-indent:-9999px;margin-bottom:3px;height:23px;}
+
+.playerNews .gLeft{float:left;width:385px;}
+
+.playerNews .gLeft li{margin-bottom:3px;zoom:1;}
+.playerNews .gLeft li:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.playerNews .gLeft li .d,.playerNews .gLeft li .c{display:block;float:left;}
+.playerNews .gLeft li .d{letter-spacing:-1px;width:80px;}
+.playerNews .gLeft li .c{width:300px;}
+
+.playerNews .movie_th{float:right;width:80px;padding-right:10px;}
+.playerNews .movie_th li{margin-bottom:9px;border:3px solid #4261ae;}
+
+.playerNews .movie{float:right;background-color:#d7d7d7;width:539px;height:284px;}
+.playerNews .movie .navi{float:left;width:97px;}
+.playerNews .movie .navi ul{margin:0 auto;padding-top:3px;width:78px;}
+.playerNews .movie .navi li{position:relative;border:2px solid #2a3a71;margin-top:10px;zoom:1;}
+.playerNews .movie .navi li .iPlay2{position:absolute;top:50%;left:50%;margin:-22px 0 0 -23px;}
+.playerNews .movie .mv{float:right;}
+
+.playerNews .moviePlayer{position:relative;float:right;width:529px;height:284px;}
+.playerNews .moviePlayer .hd{position:relative;height:40px;z-index:30;}
+.playerNews .moviePlayer .hd h3{float:left;background-position:0 -750px;width:256px;}
+.playerNews .moviePlayer .hd .tx{color:#086eb1;font-size:11px;padding-top:7px;}
+.playerNews .moviePlayer .bd{zoom:1;}
+.playerNews .moviePlayer .bd:after{content: ".";display:block;font-size:0;height:0px;line-height:0;clear:both;}
+.playerNews .moviePlayer .navi{float:left;width:97px;}
+.playerNews .moviePlayer .navi ul{margin-top:-5px;padding-top:3px;width:78px;}
+.playerNews .moviePlayer .navi li{position:relative;border:2px solid #2a3a71;margin-top:10px;zoom:1;}
+.playerNews .moviePlayer .navi li .iPlay2{position:absolute;top:50%;left:50%;margin:-22px 0 0 -23px;}
+.playerNews .moviePlayer .mv{position:absolute;top:-7px;right:30px;}
+.playerNews .moviePlayer .mv .iPlayL{position:absolute;top:50%;left:50%;margin:-45px 0 0 -45px;text-indent:0;}
+.playerNews .moviePlayer .mv .iPlayL a{display:block;width:90px;height:90px;text-indent:-9999px;}
+.playerNews .moviePlayer .tx2{position:absolute;bottom:-30px;right:30px;color:#7e7e7e;text-align:center;width:384px;}
+
+.playerNews .btnViewall{position:absolute;top:51px;left:170px;}
+
+.keyvisual .roster{background:url(/img/common/k_ico24.png) 0 -250px no-repeat;text-indent:-9999px;width:155px;height:60px;}
+
+
+
+
+
+
+
+#body_cheer {width:100%;}
+#body_cheer .breadcrumb {width:950px; margin:0 auto;}
+#body_cheer .mTitle4 {width:950px; margin:0 auto;}
+	.cheer_main { text-align:center;}
+	#cheer_tab {width:960px; height:169px; margin:0 auto;}
+	#cheer_tab li {float:left; font-size:0; line-height:0}
+	#cheer_tab a.rollover img {display:inline;}
+	#cheer_tab a.rollover img.imgover {display:none;}
+	#cheer_tab a.rollover:hover {display: inline;}
+	#cheer_tab a.rollover:hover img {display: none;}
+	#cheer_tab a.rollover:hover img.imgover {display: inline;}
+	#cheer_tab a.on img {display: none;}
+	#cheer_tab a.on img.imgover {display: inline;}
+
+
+
+	#section1 {width:100%; height:385px; background:url("/img/roster/section1.jpg") top center no-repeat;}
+	#section2 {width:100%; height:506px; background:url("/img/roster/section2.jpg") top center no-repeat;}
+	#section3 {width:100%; height:506px; background:url("/img/roster/section3.jpg") top center no-repeat;}
+	#section4 {width:100%; height:506px; background:url("/img/roster/section4.jpg") top center no-repeat;}
+	#section5 {width:100%; height:506px; background:url("/img/roster/section5.jpg") top center no-repeat;}
+	#section6 {width:100%; height:506px; background:url("/img/roster/section6.jpg") top center no-repeat;}
+	#section7 {width:100%; height:506px; background:url("/img/roster/section7.jpg") top center no-repeat;}
+		.sectionBox {*zoom:1; width:960px; margin:0 auto; position:relative; text-align:left;}
+		.sectionBox:after {content:""; display:block; clear:both;}
+			.box1 {float:left; padding:14px 0 0 137px; width:200px;}
+			.box2 {float:left; padding:14px 0 0 140px; width:270px;}
+			.box3 {float:left; padding:14px 0 0 60px; width:152px;}
+			.box1 dt {font-size:18px; color:#414141; font-weight:700; line-height:34px; margin-bottom:18px;}
+			.box1 dt span {font-size:48px; color:#aaa; font-weight:400;}
+			.box1 dd li {font-size:12px; line-height:15px; color:#888; letter-spacing:-1px;font-weight:700;}
+			.box1 dd li span {color:#d5d5d5;}
+			.box1 dd li.pdl1 {padding-left:40px; position:relative;}
+			.box1 dd li.pdl1 span {position:absolute; top:0; left:0;}
+			.box2 {float:left; padding:15px 0 0 140px; width:270px;}
+			.box2 dt {font-size:18px; color:#35436e; font-weight:700; line-height:34px; margin-bottom:18px;}
+			.box2 dt span {font-size:48px; color:#68718e; font-weight:400;letter-spacing:-1px;}
+			.box3 dt {font-size:18px; color:#58a8db; font-weight:700; line-height:34px; margin-bottom:18px;}
+			.box3 dt span {font-size:48px; color:#a3cce9; font-weight:400;}
+			.box3 dd li {font-size:12px; line-height:15px; color:#c5cde3; letter-spacing:-1px;font-weight:700;}
+			.box3 dd li span {color:#fff;}
+
+			.box4 {padding:100px 0 0 80px;}
+			.box4 dt {font-size:18px; color:#a7a7a7; font-weight:700; line-height:60px; letter-spacing:-1px; height:170px;}
+			.box4 dt span {font-size:100px; color:#272727; font-weight:400;}
+			.box4 dd li {font-size:14px; line-height:18px; color:#383838;font-weight:700;}
+			.box4 dd li span {color:#008ed1;}
+			.box4 dd li.pdl2 {padding-left:50px; position:relative;}
+			.box4 dd li.pdl2 span {position:absolute; top:0; left:0;}
+
+
+			.box5 {padding:100px 0 0 670px;}
+			.box5 dt {font-size:18px; color:#a7a7a7; font-weight:700; line-height:60px; letter-spacing:-1px; height:170px;}
+			.box5 dt span {font-size:100px; color:#272727; font-weight:400;}
+			.box5 dd li {font-size:14px; line-height:18px; color:#383838;font-weight:700;}
+			.box5 dd li span {color:#008ed1;}
+			.box5 dd li.pdl2 {padding-left:50px; position:relative;}
+			.box5 dd li.pdl2 span {position:absolute; top:0; left:0;}
+
